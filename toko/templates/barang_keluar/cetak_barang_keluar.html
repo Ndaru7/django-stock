@@ -1,0 +1,47 @@
+{% extends "layout/base.html"%}
+
+{% block title %}Django | Cetak Barang Keluar{% endblock %}
+
+{% block content %}
+{% include "layout/alert.html"%}
+
+<div class="container">
+</div>
+
+<div class="container mt-4 p-4">
+    <div class="d-flex justify-content-center align-items-center">
+        <div>
+            <h1 class="text-center">Cetak Barang Keluar</h1> <hr> <br>
+            <a href="" data-bs-toggle="modal" data-bs-target="#cetakModal" class="btn btn-success px-5 btn-sm">Cetak Laporan</a>
+            <a href="{% url 'barang-keluar' %}" class="btn btn-secondary px-5 btn-sm">Kembali</a>
+        </div>
+    </div>
+  <br />
+
+  <!-- Modal Tambah -->
+  <div class="modal fade" id="cetakModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cetakModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="cetakModal">Cetak Data Barang Keluar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+              <button type="submit" class="btn btn-success">Cetak</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

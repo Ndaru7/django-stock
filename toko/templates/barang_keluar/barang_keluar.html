@@ -1,0 +1,65 @@
+{% extends "layout/base.html"%}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% include "layout/navbar.html"%}
+{% include "layout/alert.html"%}
+
+<div class="container">
+    <h1>Data Barang Keluar</h1>
+</div>
+
+<div class="container mt-5 p-3 border rounded">
+    <div class="d-flex align-items-center">
+        <div>
+            <h4>Filter Barang Keluar</h4> <br>
+            <form action="" method="GET" class="d-flex">
+                <input type="date" name="tanggal_min" value="" class="form-control" placeholder="Tanggal Min"/>
+                <h3> - </h3>
+                <input type="date" name="tanggal_max" value="" class="form-control" placeholder="Tanggal Max"/>
+                <button class="btn btn-sm btn-success mx-2" name="search">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 p-5 border rounded">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <a href="{% url 'tambah-barang-keluar' %}" class="btn btn-primary px-5 btn-sm">Tambah barang keluar</a>
+            <a href="{% url 'cetak-barang-keluar' %}" class="btn btn-success px-5 btn-sm">Cetak</a>
+        </div>
+        
+    </div>
+    <br />
+            <table class=" text-center table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tanggal Keluar</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah Barang Keluar</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in data %}
+                    <tr>
+                        <td>{{ x.tanggal_keluar }}</td>
+                        <td>{{ x.barang }}</td>
+                        <td>{{ x.total_barang_keluar }}</td>
+                        <td>
+                            <a href="{% url 'update-barang-keluar' x.id %}" class="btn btn-sm btn-warning">Update</a>
+                            <a href="{% url 'delete-barang-keluar' x.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+    </div>
+</div> <br>
+
+{% include "layout/paginator.html" %}
+
+{% endblock %}

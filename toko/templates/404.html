@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block content %}
+<div class="container"> <br>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <h1>404 Not Found</h1>
+    </div> <hr> <br>
+    <div class="d-flex justify-content-center align-items-center">
+        <h2>Walah gan halaman tidak ditemukan :( </h2>
+    </div> <br>
+    <div class="d-flex justify-content-center align-items-center">
+        <img src="{% static 'images/404(1).png' %}" height="400px" width="400px" alt="ini file gambar">
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <a href="{% url 'dashboard' %}">Kembali ke Dashboard</a>
+    </div>
+    
+</div>
+{% endblock %}
