@@ -1,0 +1,8 @@
+@font-face {
+    src: url(../fonts/EBGaramond-Medium.ttf);
+    font-family: EBGaramond-Medium;
+}
+
+* {
+    font-family: EBGaramond-Medium, arial;
+}
