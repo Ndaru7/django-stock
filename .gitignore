@@ -1,0 +1,5 @@
+dj-env
+core/__pycache__
+toko/__pycache__
+toko/migrations/__pycache__
+db.sqlite3
