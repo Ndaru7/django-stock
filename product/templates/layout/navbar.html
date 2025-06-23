@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Toko Ferdinan</a>
+    <a class="navbar-brand">Django Inventory</a>
     <!-- <a class="text-white"> | </a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,19 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+          <a class="nav-link" href="{% url 'product:dashboard' %}">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'barang' %}">Data Barang</a>
+          <a class="nav-link" href="{% url 'product:product-list' %}">Product</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'barang-masuk' %}">Barang Masuk</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'barang-keluar' %}">Barang Keluar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link" href="{% url 'product:logout' %}">Logout</a>
         </li>
       </ul>
     </div>

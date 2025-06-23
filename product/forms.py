@@ -1,7 +1,7 @@
 from django import forms
 from product.models import Product
 
-class FormLogin(forms.Form):
+class LoginForm(forms.Form):
     username = forms.CharField(label="",
                                max_length=50, 
                                widget=forms.TextInput(
@@ -20,21 +20,18 @@ class FormLogin(forms.Form):
                                )
                                )
 
-# class FormBarang(forms.ModelForm):
-#     class Meta:
-#         model = Barang
-#         fields = (
-#             "nama_barang",
-#             "harga_barang",
-#             "satuan",
-#             "kategori",
-#             "qty",
-#         )
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = (
+            "name",
+            "category",
+            "price"
+        )
 
-#         wigets = {
-#             "harga_barang": forms.NumberInput(attrs={"min": "0"}),
-#             "qty": forms.NumberInput(attrs={"min": "0"}),
-#         }
+        wigets = {
+            "price": forms.NumberInput(attrs={"min": "0"})
+        }
 
 # class FormBarangMasuk(forms.ModelForm):
 #     class Meta:

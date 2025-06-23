@@ -8,12 +8,12 @@ urlpatterns = [
     path("auth/login/", views.LoginFormView.as_view(), name="login"),
     path("auth/logout/", views.LogoutTemplateView.as_view(), name="logout"),
 
-    # # Url Barang
-    # path("barang/", views.barang, name="barang"),
-    # path("barang/tambah_barang/", views.tambah_barang, name="tambah-barang"),
-    # path("barang/update_barang/<int:id>/", views.update_barang, name="update-barang"),
-    # path("barang/delete_barang/<int:id>/", views.delete_barang, name="delete-barang"),
-    # path("barang/cetak_laporan", views.CetakBarangListView.as_view(), name="cetak-barang"),
+    path("product/", views.ProductListView.as_view(), name="product-list"),
+    path("product/detail/<int:pk>", views.ProductDetailView.as_view(), name="product-detail"),
+    path("product/add/", views.ProductAddView.as_view(), name="product-add"),
+    path("product/update/<int:pk>/", views.ProductUpdateView.as_view(), name="product-update"),
+    path("product/delete/<int:pk>/", views.ProductDeleteView.as_view(), name="product-delete"),
+    #path("barang/cetak_laporan", views.CetakBarangListView.as_view(), name="cetak-barang"),
 
     # # Url Barang Masuk 
     # path("barang_masuk/", views.barang_masuk, name="barang-masuk"),

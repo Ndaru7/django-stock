@@ -1,0 +1,50 @@
+{% extends "layout/base.html"%}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% include "layout/navbar.html"%}
+
+<div class="container">
+    <h1>List Product</h1> 
+</div>
+
+<!-- <div class="container mt-5 p-3 border rounded">
+    <div class="d-flex align-items-center">
+        <div>
+            <h4>Filter Barang</h4> <br>
+            <form action="" method="GET" class="d-flex">
+                <input type="text" name="nama_barang" value="" class="form-control" placeholder="Cari Nama Barang"/>
+                <button class="btn btn-sm btn-success mx-2" name="search">Search</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-4 p-5 border rounded">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <a href="{% url 'product:product-add' %}" class="btn btn-primary px-5 btn-sm">Add</a>
+        </div>
+    </div>
+    <br/>
+        <table class=" text-center table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></td>
+                    <td>{{ product.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+{% endblock %}

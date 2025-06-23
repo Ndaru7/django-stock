@@ -1,0 +1,16 @@
+{% extends "layout/base.html" %}
+
+{% block title%}{% endblock %}
+
+{% block content %}
+{% include "layout/alert.html"%}
+
+
+<div class="container">
+    <h1>{{ object.name }}</h1>
+
+    <a href="{% url 'product:product-update' object.id %}" class="btn btn-warning btn-sm">Update</a>
+    <a href="{% url 'product:product-delete' object.id %}" class="btn btn-danger btn-sm">Delete</a>
+</div>
+
+{% endblock %}

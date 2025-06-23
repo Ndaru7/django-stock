@@ -1,10 +1,11 @@
 from django.views import generic
+from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from product.models import Product
-from .forms import FormLogin
+from product.forms import LoginForm, ProductForm
 
 
 class DashboardTemplateView(generic.TemplateView):
@@ -12,7 +13,7 @@ class DashboardTemplateView(generic.TemplateView):
 
 class LoginFormView(generic.FormView):
     template_name = "login.html"
-    form_class = FormLogin
+    form_class = LoginForm
     success_url = "/dashboard/"
     
     def post(self, request):
@@ -36,6 +37,36 @@ class LogoutTemplateView(generic.TemplateView):
     def post(self, request):
         logout(request)
         return redirect("product:login")
+    
+
+class ProductListView(generic.ListView):
+    model = Product
+    template_name = "product/product_list.html"
+    context_object_name = "products"
+
+
+class ProductDetailView(generic.DetailView):
+    model = Product
+    template_name = "product/product_detail.html"
+
+
+class ProductAddView(generic.CreateView):
+    model = Product
+    template_name = "product/product_add.html"
+    form_class = ProductForm
+
+
+class ProductUpdateView(generic.UpdateView):
+    model = Product
+    form_class = ProductForm
+    template_name = "product/product_update.html"
+    success_url = "/product/"
+
+
+class ProductDeleteView(generic.DeleteView):
+    model = Product
+    template_name = "product/product_delete.html"
+    success_url = reverse_lazy("product:product-list")
 
 # def is_valid_query(param):
 #     return param != "" and param is not None

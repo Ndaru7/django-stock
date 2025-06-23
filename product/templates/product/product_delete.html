@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+
+{% block title%}{{title}}{% endblock %}
+
+{% block content %}
+{% include "layout/alert.html"%}
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center align-items-center"> 
+            <div>
+                <h1>Delete Product</h1> <hr> <br>
+                <p>Anda yakin ingin menghapus data berikut? </p>
+                <table class="text-center table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ object.id }}</td>
+                            <td>{{ object.name }}</td>
+                            <td>{{ object.category }}</td>
+                            <td>{{ object.price }}</td>
+                            <td>{{ object.quantity }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                    <a class="btn btn-sm btn-secondary" type="button" href="{{ object.get_absolute_url }}">Kembali</a>
+                </div>
+            </div>
+        </div>
+        
+    </form>    
+</div>
+
+{% endblock %}
