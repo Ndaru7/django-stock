@@ -5,7 +5,8 @@ app_name = "product"
 
 urlpatterns = [
     path("dashboard/", views.DashboardTemplateView.as_view(), name="dashboard"),
-    path("auth/login/", views.LoginFormView.as_view(), name="login")
+    path("auth/login/", views.LoginFormView.as_view(), name="login"),
+    path("auth/logout/", views.LogoutTemplateView.as_view(), name="logout"),
 
     # # Url Barang
     # path("barang/", views.barang, name="barang"),

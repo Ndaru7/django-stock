@@ -1,13 +1,10 @@
-from django.shortcuts import render, redirect, HttpResponse
 from django.views import generic
+from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.core.paginator import Paginator
-from django.db.models import Q
 from product.models import Product
 from .forms import FormLogin
-#from .resources import BarangResources, BarangMasukResources, BarangKeluarResources
 
 
 class DashboardTemplateView(generic.TemplateView):
@@ -31,6 +28,14 @@ class LoginFormView(generic.FormView):
         
         else:
             return self.form_invalid(form)
+        
+
+class LogoutTemplateView(generic.TemplateView):
+    template_name = "logout.html"
+
+    def post(self, request):
+        logout(request)
+        return redirect("product:login")
 
 # def is_valid_query(param):
 #     return param != "" and param is not None
