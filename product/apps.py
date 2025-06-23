@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class TokoConfig(AppConfig):
+class ProductConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'toko'
+    name = 'product'
 
     def ready(self):
-        import toko.signals
+        import product.signals

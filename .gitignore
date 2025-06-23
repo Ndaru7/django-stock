@@ -1,7 +1,8 @@
 .venv
 .env
 core/__pycache__
-toko/__pycache__
-toko/migrations/__pycache__
+product/__pycache__
+product/migrations/__pycache__
+product/migrations/*.py
 *.sqlite3
 !__init__.py

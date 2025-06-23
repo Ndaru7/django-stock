@@ -30,4 +30,4 @@ urlpatterns = [
     path("logout/", views.logout_user, name="logout"),
 ]
 
-handler404 = "toko.views.handling_404"
+handler404 = "product.views.handling_404"
