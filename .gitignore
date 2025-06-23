@@ -1,5 +1,7 @@
-dj-env
+.venv
+.env
 core/__pycache__
 toko/__pycache__
 toko/migrations/__pycache__
-db.sqlite3
+*.sqlite3
+!__init__.py
